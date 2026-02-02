@@ -1,0 +1,316 @@
+Load image file : /home/lwt/ysyx-workbench/am-kernels/tests/cpu-tests/build/bit-riscv32e-npc.bin
+0x80000000:      00000413      mv	s0, zero
+0x80000004:      00009117      auipc	sp, 9
+0x80000008:      ffc10113      addi	sp, sp, -4
+0x8000000c:      1f8000ef      jal	0x1f8
+0x80000204:      ff410113      addi	sp, sp, -0xc
+0x80000208:      00000517      auipc	a0, 0
+0x8000020c:      01c50513      addi	a0, a0, 0x1c
+0x80000210:      00112423      sw	ra, 8(sp)        [addr:80008ffc] [write_ram:80000010]
+0x80000214:      e95ff0ef      jal	-0x16c
+0x800000a8:      ff010113      addi	sp, sp, -0x10
+0x800000ac:      0aa00793      addi	a5, zero, 0xaa
+0x800000b0:      00000593      mv	a1, zero
+0x800000b4:      00010513      mv	a0, sp
+0x800000b8:      00112623      sw	ra, 0xc(sp)        [addr:80008ff0] [write_ram:80000218]
+0x800000bc:      00f11023      sh	a5, 0(sp)        [addr:80008fe4] [write_ram:000000aa]
+0x800000c0:      f69ff0ef      jal	-0x98
+0x80000028:      4035d793      srai	a5, a1, 3
+0x8000002c:      00f50533      add	a0, a0, a5
+0x80000030:      00054503      lbu	a0, 0(a0)        [addr:80008fe4] [read_ram:000000aa]
+0x80000034:      0075f593      andi	a1, a1, 7
+0x80000038:      00100793      addi	a5, zero, 1
+0x8000003c:      00b797b3      sll	a5, a5, a1
+0x80000040:      00f57533      and	a0, a0, a5
+0x80000044:      00a03533      snez	a0, a0
+0x80000048:      00008067      ret
+0x800000c4:      00154513      xori	a0, a0, 1
+0x800000c8:      0ff57513      andi	a0, a0, 0xff
+0x800000cc:      f45ff0ef      jal	-0xbc
+0x80000010:      00050463      beqz	a0, 8
+0x80000014:      00008067      ret
+0x800000d0:      00100593      addi	a1, zero, 1
+0x800000d4:      00010513      mv	a0, sp
+0x800000d8:      f51ff0ef      jal	-0xb0
+0x80000028:      4035d793      srai	a5, a1, 3
+0x8000002c:      00f50533      add	a0, a0, a5
+0x80000030:      00054503      lbu	a0, 0(a0)        [addr:80008fe4] [read_ram:000000aa]
+0x80000034:      0075f593      andi	a1, a1, 7
+0x80000038:      00100793      addi	a5, zero, 1
+0x8000003c:      00b797b3      sll	a5, a5, a1
+0x80000040:      00f57533      and	a0, a0, a5
+0x80000044:      00a03533      snez	a0, a0
+0x80000048:      00008067      ret
+0x800000dc:      f35ff0ef      jal	-0xcc
+0x80000010:      00050463      beqz	a0, 8
+0x80000014:      00008067      ret
+0x800000e0:      00200593      addi	a1, zero, 2
+0x800000e4:      00010513      mv	a0, sp
+0x800000e8:      f41ff0ef      jal	-0xc0
+0x80000028:      4035d793      srai	a5, a1, 3
+0x8000002c:      00f50533      add	a0, a0, a5
+0x80000030:      00054503      lbu	a0, 0(a0)        [addr:80008fe4] [read_ram:000000aa]
+0x80000034:      0075f593      andi	a1, a1, 7
+0x80000038:      00100793      addi	a5, zero, 1
+0x8000003c:      00b797b3      sll	a5, a5, a1
+0x80000040:      00f57533      and	a0, a0, a5
+0x80000044:      00a03533      snez	a0, a0
+0x80000048:      00008067      ret
+0x800000ec:      00154513      xori	a0, a0, 1
+0x800000f0:      0ff57513      andi	a0, a0, 0xff
+0x800000f4:      f1dff0ef      jal	-0xe4
+0x80000010:      00050463      beqz	a0, 8
+0x80000014:      00008067      ret
+0x800000f8:      00300593      addi	a1, zero, 3
+0x800000fc:      00010513      mv	a0, sp
+0x80000100:      f29ff0ef      jal	-0xd8
+0x80000028:      4035d793      srai	a5, a1, 3
+0x8000002c:      00f50533      add	a0, a0, a5
+0x80000030:      00054503      lbu	a0, 0(a0)        [addr:80008fe4] [read_ram:000000aa]
+0x80000034:      0075f593      andi	a1, a1, 7
+0x80000038:      00100793      addi	a5, zero, 1
+0x8000003c:      00b797b3      sll	a5, a5, a1
+0x80000040:      00f57533      and	a0, a0, a5
+0x80000044:      00a03533      snez	a0, a0
+0x80000048:      00008067      ret
+0x80000104:      f0dff0ef      jal	-0xf4
+0x80000010:      00050463      beqz	a0, 8
+0x80000014:      00008067      ret
+0x80000108:      00400593      addi	a1, zero, 4
+0x8000010c:      00010513      mv	a0, sp
+0x80000110:      f19ff0ef      jal	-0xe8
+0x80000028:      4035d793      srai	a5, a1, 3
+0x8000002c:      00f50533      add	a0, a0, a5
+0x80000030:      00054503      lbu	a0, 0(a0)        [addr:80008fe4] [read_ram:000000aa]
+0x80000034:      0075f593      andi	a1, a1, 7
+0x80000038:      00100793      addi	a5, zero, 1
+0x8000003c:      00b797b3      sll	a5, a5, a1
+0x80000040:      00f57533      and	a0, a0, a5
+0x80000044:      00a03533      snez	a0, a0
+0x80000048:      00008067      ret
+0x80000114:      00154513      xori	a0, a0, 1
+0x80000118:      0ff57513      andi	a0, a0, 0xff
+0x8000011c:      ef5ff0ef      jal	-0x10c
+0x80000010:      00050463      beqz	a0, 8
+0x80000014:      00008067      ret
+0x80000120:      00500593      addi	a1, zero, 5
+0x80000124:      00010513      mv	a0, sp
+0x80000128:      f01ff0ef      jal	-0x100
+0x80000028:      4035d793      srai	a5, a1, 3
+0x8000002c:      00f50533      add	a0, a0, a5
+0x80000030:      00054503      lbu	a0, 0(a0)        [addr:80008fe4] [read_ram:000000aa]
+0x80000034:      0075f593      andi	a1, a1, 7
+0x80000038:      00100793      addi	a5, zero, 1
+0x8000003c:      00b797b3      sll	a5, a5, a1
+0x80000040:      00f57533      and	a0, a0, a5
+0x80000044:      00a03533      snez	a0, a0
+0x80000048:      00008067      ret
+0x8000012c:      ee5ff0ef      jal	-0x11c
+0x80000010:      00050463      beqz	a0, 8
+0x80000014:      00008067      ret
+0x80000130:      00600593      addi	a1, zero, 6
+0x80000134:      00010513      mv	a0, sp
+0x80000138:      ef1ff0ef      jal	-0x110
+0x80000028:      4035d793      srai	a5, a1, 3
+0x8000002c:      00f50533      add	a0, a0, a5
+0x80000030:      00054503      lbu	a0, 0(a0)        [addr:80008fe4] [read_ram:000000aa]
+0x80000034:      0075f593      andi	a1, a1, 7
+0x80000038:      00100793      addi	a5, zero, 1
+0x8000003c:      00b797b3      sll	a5, a5, a1
+0x80000040:      00f57533      and	a0, a0, a5
+0x80000044:      00a03533      snez	a0, a0
+0x80000048:      00008067      ret
+0x8000013c:      00154513      xori	a0, a0, 1
+0x80000140:      0ff57513      andi	a0, a0, 0xff
+0x80000144:      ecdff0ef      jal	-0x134
+0x80000010:      00050463      beqz	a0, 8
+0x80000014:      00008067      ret
+0x80000148:      00700593      addi	a1, zero, 7
+0x8000014c:      00010513      mv	a0, sp
+0x80000150:      ed9ff0ef      jal	-0x128
+0x80000028:      4035d793      srai	a5, a1, 3
+0x8000002c:      00f50533      add	a0, a0, a5
+0x80000030:      00054503      lbu	a0, 0(a0)        [addr:80008fe4] [read_ram:000000aa]
+0x80000034:      0075f593      andi	a1, a1, 7
+0x80000038:      00100793      addi	a5, zero, 1
+0x8000003c:      00b797b3      sll	a5, a5, a1
+0x80000040:      00f57533      and	a0, a0, a5
+0x80000044:      00a03533      snez	a0, a0
+0x80000048:      00008067      ret
+0x80000154:      ebdff0ef      jal	-0x144
+0x80000010:      00050463      beqz	a0, 8
+0x80000014:      00008067      ret
+0x80000158:      00010513      mv	a0, sp
+0x8000015c:      00100613      addi	a2, zero, 1
+0x80000160:      00800593      addi	a1, zero, 8
+0x80000164:      ee9ff0ef      jal	-0x118
+0x8000004c:      4035d793      srai	a5, a1, 3
+0x80000050:      ffc10113      addi	sp, sp, -4
+0x80000054:      00f50533      add	a0, a0, a5
+0x80000058:      00a12023      sw	a0, 0(sp)        [addr:80008fe0] [write_ram:80008fe5]
+0x8000005c:      00012783      lw	a5, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000060:      0075f593      andi	a1, a1, 7
+0x80000064:      00100713      addi	a4, zero, 1
+0x80000068:      00b71733      sll	a4, a4, a1
+0x8000006c:      02061063      bnez	a2, 0x20
+0x8000008c:      0007c783      lbu	a5, 0(a5)        [addr:80008fe5] [read_ram:000000aa]
+0x80000090:      00e7e7b3      or	a5, a5, a4
+0x80000094:      00012703      lw	a4, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000098:      0ff7f793      andi	a5, a5, 0xff
+0x8000009c:      00f70023      sb	a5, 0(a4)        [addr:80008fe5] [write_ram:00000001]
+0x800000a0:      00410113      addi	sp, sp, 4
+0x800000a4:      00008067      ret
+0x80000168:      00010513      mv	a0, sp
+0x8000016c:      00000613      mv	a2, zero
+0x80000170:      00900593      addi	a1, zero, 9
+0x80000174:      ed9ff0ef      jal	-0x128
+0x8000004c:      4035d793      srai	a5, a1, 3
+0x80000050:      ffc10113      addi	sp, sp, -4
+0x80000054:      00f50533      add	a0, a0, a5
+0x80000058:      00a12023      sw	a0, 0(sp)        [addr:80008fe0] [write_ram:80008fe5]
+0x8000005c:      00012783      lw	a5, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000060:      0075f593      andi	a1, a1, 7
+0x80000064:      00100713      addi	a4, zero, 1
+0x80000068:      00b71733      sll	a4, a4, a1
+0x8000006c:      02061063      bnez	a2, 0x20
+0x80000070:      0007c783      lbu	a5, 0(a5)        [addr:80008fe5] [read_ram:000001aa]
+0x80000074:      fff74713      not	a4, a4
+0x80000078:      00e7f7b3      and	a5, a5, a4
+0x8000007c:      00012703      lw	a4, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000080:      00f70023      sb	a5, 0(a4)        [addr:80008fe5] [write_ram:00000001]
+0x80000084:      00410113      addi	sp, sp, 4
+0x80000088:      00008067      ret
+0x80000178:      00010513      mv	a0, sp
+0x8000017c:      00100613      addi	a2, zero, 1
+0x80000180:      00a00593      addi	a1, zero, 0xa
+0x80000184:      ec9ff0ef      jal	-0x138
+0x8000004c:      4035d793      srai	a5, a1, 3
+0x80000050:      ffc10113      addi	sp, sp, -4
+0x80000054:      00f50533      add	a0, a0, a5
+0x80000058:      00a12023      sw	a0, 0(sp)        [addr:80008fe0] [write_ram:80008fe5]
+0x8000005c:      00012783      lw	a5, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000060:      0075f593      andi	a1, a1, 7
+0x80000064:      00100713      addi	a4, zero, 1
+0x80000068:      00b71733      sll	a4, a4, a1
+0x8000006c:      02061063      bnez	a2, 0x20
+0x8000008c:      0007c783      lbu	a5, 0(a5)        [addr:80008fe5] [read_ram:000001aa]
+0x80000090:      00e7e7b3      or	a5, a5, a4
+0x80000094:      00012703      lw	a4, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000098:      0ff7f793      andi	a5, a5, 0xff
+0x8000009c:      00f70023      sb	a5, 0(a4)        [addr:80008fe5] [write_ram:00000005]
+0x800000a0:      00410113      addi	sp, sp, 4
+0x800000a4:      00008067      ret
+0x80000188:      00010513      mv	a0, sp
+0x8000018c:      00000613      mv	a2, zero
+0x80000190:      00b00593      addi	a1, zero, 0xb
+0x80000194:      eb9ff0ef      jal	-0x148
+0x8000004c:      4035d793      srai	a5, a1, 3
+0x80000050:      ffc10113      addi	sp, sp, -4
+0x80000054:      00f50533      add	a0, a0, a5
+0x80000058:      00a12023      sw	a0, 0(sp)        [addr:80008fe0] [write_ram:80008fe5]
+0x8000005c:      00012783      lw	a5, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000060:      0075f593      andi	a1, a1, 7
+0x80000064:      00100713      addi	a4, zero, 1
+0x80000068:      00b71733      sll	a4, a4, a1
+0x8000006c:      02061063      bnez	a2, 0x20
+0x80000070:      0007c783      lbu	a5, 0(a5)        [addr:80008fe5] [read_ram:000005aa]
+0x80000074:      fff74713      not	a4, a4
+0x80000078:      00e7f7b3      and	a5, a5, a4
+0x8000007c:      00012703      lw	a4, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000080:      00f70023      sb	a5, 0(a4)        [addr:80008fe5] [write_ram:00000005]
+0x80000084:      00410113      addi	sp, sp, 4
+0x80000088:      00008067      ret
+0x80000198:      00010513      mv	a0, sp
+0x8000019c:      00100613      addi	a2, zero, 1
+0x800001a0:      00c00593      addi	a1, zero, 0xc
+0x800001a4:      ea9ff0ef      jal	-0x158
+0x8000004c:      4035d793      srai	a5, a1, 3
+0x80000050:      ffc10113      addi	sp, sp, -4
+0x80000054:      00f50533      add	a0, a0, a5
+0x80000058:      00a12023      sw	a0, 0(sp)        [addr:80008fe0] [write_ram:80008fe5]
+0x8000005c:      00012783      lw	a5, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000060:      0075f593      andi	a1, a1, 7
+0x80000064:      00100713      addi	a4, zero, 1
+0x80000068:      00b71733      sll	a4, a4, a1
+0x8000006c:      02061063      bnez	a2, 0x20
+0x8000008c:      0007c783      lbu	a5, 0(a5)        [addr:80008fe5] [read_ram:000005aa]
+0x80000090:      00e7e7b3      or	a5, a5, a4
+0x80000094:      00012703      lw	a4, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000098:      0ff7f793      andi	a5, a5, 0xff
+0x8000009c:      00f70023      sb	a5, 0(a4)        [addr:80008fe5] [write_ram:00000015]
+0x800000a0:      00410113      addi	sp, sp, 4
+0x800000a4:      00008067      ret
+0x800001a8:      00010513      mv	a0, sp
+0x800001ac:      00000613      mv	a2, zero
+0x800001b0:      00d00593      addi	a1, zero, 0xd
+0x800001b4:      e99ff0ef      jal	-0x168
+0x8000004c:      4035d793      srai	a5, a1, 3
+0x80000050:      ffc10113      addi	sp, sp, -4
+0x80000054:      00f50533      add	a0, a0, a5
+0x80000058:      00a12023      sw	a0, 0(sp)        [addr:80008fe0] [write_ram:80008fe5]
+0x8000005c:      00012783      lw	a5, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000060:      0075f593      andi	a1, a1, 7
+0x80000064:      00100713      addi	a4, zero, 1
+0x80000068:      00b71733      sll	a4, a4, a1
+0x8000006c:      02061063      bnez	a2, 0x20
+0x80000070:      0007c783      lbu	a5, 0(a5)        [addr:80008fe5] [read_ram:000015aa]
+0x80000074:      fff74713      not	a4, a4
+0x80000078:      00e7f7b3      and	a5, a5, a4
+0x8000007c:      00012703      lw	a4, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000080:      00f70023      sb	a5, 0(a4)        [addr:80008fe5] [write_ram:00000015]
+0x80000084:      00410113      addi	sp, sp, 4
+0x80000088:      00008067      ret
+0x800001b8:      00010513      mv	a0, sp
+0x800001bc:      00100613      addi	a2, zero, 1
+0x800001c0:      00e00593      addi	a1, zero, 0xe
+0x800001c4:      e89ff0ef      jal	-0x178
+0x8000004c:      4035d793      srai	a5, a1, 3
+0x80000050:      ffc10113      addi	sp, sp, -4
+0x80000054:      00f50533      add	a0, a0, a5
+0x80000058:      00a12023      sw	a0, 0(sp)        [addr:80008fe0] [write_ram:80008fe5]
+0x8000005c:      00012783      lw	a5, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000060:      0075f593      andi	a1, a1, 7
+0x80000064:      00100713      addi	a4, zero, 1
+0x80000068:      00b71733      sll	a4, a4, a1
+0x8000006c:      02061063      bnez	a2, 0x20
+0x8000008c:      0007c783      lbu	a5, 0(a5)        [addr:80008fe5] [read_ram:000015aa]
+0x80000090:      00e7e7b3      or	a5, a5, a4
+0x80000094:      00012703      lw	a4, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000098:      0ff7f793      andi	a5, a5, 0xff
+0x8000009c:      00f70023      sb	a5, 0(a4)        [addr:80008fe5] [write_ram:00000055]
+0x800000a0:      00410113      addi	sp, sp, 4
+0x800000a4:      00008067      ret
+0x800001c8:      00010513      mv	a0, sp
+0x800001cc:      00000613      mv	a2, zero
+0x800001d0:      00f00593      addi	a1, zero, 0xf
+0x800001d4:      e79ff0ef      jal	-0x188
+0x8000004c:      4035d793      srai	a5, a1, 3
+0x80000050:      ffc10113      addi	sp, sp, -4
+0x80000054:      00f50533      add	a0, a0, a5
+0x80000058:      00a12023      sw	a0, 0(sp)        [addr:80008fe0] [write_ram:80008fe5]
+0x8000005c:      00012783      lw	a5, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000060:      0075f593      andi	a1, a1, 7
+0x80000064:      00100713      addi	a4, zero, 1
+0x80000068:      00b71733      sll	a4, a4, a1
+0x8000006c:      02061063      bnez	a2, 0x20
+0x80000070:      0007c783      lbu	a5, 0(a5)        [addr:80008fe5] [read_ram:000055aa]
+0x80000074:      fff74713      not	a4, a4
+0x80000078:      00e7f7b3      and	a5, a5, a4
+0x8000007c:      00012703      lw	a4, 0(sp)        [addr:80008fe0] [read_ram:80008fe5]
+0x80000080:      00f70023      sb	a5, 0(a4)        [addr:80008fe5] [write_ram:00000055]
+0x80000084:      00410113      addi	sp, sp, 4
+0x80000088:      00008067      ret
+0x800001d8:      00114503      lbu	a0, 1(sp)        [addr:80008fe5] [read_ram:000055aa]
+0x800001dc:      fab50513      addi	a0, a0, -0x55
+0x800001e0:      00153513      seqz	a0, a0
+0x800001e4:      e2dff0ef      jal	-0x1d4
+0x80000010:      00050463      beqz	a0, 8
+0x80000014:      00008067      ret
+0x800001e8:      00c12083      lw	ra, 0xc(sp)        [addr:80008ff0] [read_ram:80000218]
+0x800001ec:      00000513      mv	a0, zero
+0x800001f0:      01010113      addi	sp, sp, 0x10
+0x800001f4:      00008067      ret
+0x80000218:      00050513      mv	a0, a0
+0x8000021c:      00100073      ebreak
+0x8000021c:      00100073      ebreak
+[38;5;117mNPC : HIT GOOD TRAP at pc = 0x8000021c[0m

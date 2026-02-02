@@ -1,0 +1,180 @@
+/*
+LSU(Load-Store Unit): 
+负责根据控制信号控制存储器, 从存储器中读出数据, 或将数据写入存储器
+*/
+module lsu (
+        input               clk,        // 时钟信号（上升沿触发）
+        input               rst,        // 复位信号（高有效）
+        // 控制信号（来自IDU）
+        input               lsu_valid,  // 访存有效标志(mem_valid)（1=需要访存）
+        input               mem_wen,    // 写使能（1=store，0=load）
+        input       [31:0]  mem_addr,   // 访存地址（读/写共用）
+        input       [31:0]  mem_wdata,  // 待写入数据（store时有效）
+        input       [3:0]   mem_wmask,  // 写掩码（每bit对应1字节，1=写入）
+        // 输出信号（到EXU/WBU）
+        output reg  [31:0]  mem_rdata,  // 读出的数据（load时有效）
+        output reg          lsu_done,    // 访存完成标志（1=操作结束）
+
+        output [31:0] lsu_addr,
+        output        lsu_wen,
+        output [31:0] lsu_wdata,
+        output [ 3:0] lsu_wmask,
+        input  [31:0] lsu_rdata
+    );
+        assign lsu_wen    = mem_wen;
+        assign lsu_wmask  = mem_wmask;
+        assign lsu_addr   = mem_addr;
+        assign lsu_wdata  = mem_wdata;
+
+
+
+        // 状态定义（基础2状态机）
+        localparam IDLE  = 1'b0;  // 空闲状态：等待访存请求
+        localparam WAIT  = 1'b1;  // 等待状态：处理访存并延迟1周期
+
+        // 内部信号
+        reg         state;               // 状态寄存器
+        //reg [31:0]  in_rdata;             // 读数据暂存器（延迟1周期用）
+        reg         in_mem_wen;           // 写使能暂存（同步状态用）
+
+        //时许逻辑控制状态，
+        always @(posedge clk or posedge rst) begin
+            if (rst) begin
+                state  <=IDLE;
+            end else begin
+                in_mem_wen <= 0;
+                case (state)
+                    IDLE: begin
+                        if (lsu_valid) begin
+                            if (!mem_wen) begin
+                                state     <= WAIT;
+                                in_mem_wen   <= 1'b0;
+                                // in_rdata  <= pmem_read(mem_addr);
+                            end else begin
+                                state     <= IDLE;
+                                in_mem_wen   <= 1'b1;
+                            end
+                        end
+                    end
+                    WAIT: begin
+                        if (!in_mem_wen) begin
+                            //mem_rdata <= in_rdata;
+                            state     <= IDLE;
+                        end
+                    end
+                endcase
+            end
+        end
+
+        always @(*) begin
+            case (state)
+                IDLE: begin
+                    // 写操作在IDLE状态完成，读操作在IDLE状态不完成
+                    //不知道要不要直接assign
+                    lsu_addr = mem_addr;
+                    lsu_done = lsu_valid ? (mem_wen ? 1 : 0) : 1;
+                end
+                WAIT: begin
+                    // 读操作在WAIT状态完成
+                    mem_rdata = lsu_rdata;
+                    lsu_done = 1'b1;
+                end
+            endcase
+        end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // // 主状态机：控制访存流程
+        // always @(posedge clk or posedge rst) begin
+        //     if (rst) begin
+        //         state       <= IDLE;
+        //         mem_rdata   <= 32'd0;
+        //         in_rdata     <= 32'd0;
+        //         in_mem_wen   <= 1'b0;
+        //         lsu_done    <= 1'b0;
+        //     end else begin
+        //         mem_rdata   <= 32'd0;
+        //         in_rdata     <= 32'd0;
+        //         in_mem_wen   <= 1'b0;
+        //         lsu_done    <= 1'b0;
+        //         case (state)
+        //             IDLE: begin
+        //                 // lsu_done    <= 1'b0;
+        //                 if (lsu_valid) begin
+        //                     if (!mem_wen) begin
+        //                         in_rdata     <= pmem_read(mem_addr);
+        //                         in_mem_wen   <= 1'b0;
+        //                         state <= WAIT;  // 进入等待周期
+        //                     end else begin
+        //                         pmem_write(mem_addr, mem_wdata, mem_wmask);//
+        //                     /*
+        //                     讲义要求这样写，但我的关于wmask部分在pmem_write进行，不确定要不要改
+        //                     if (wen) {
+        //                         wmask_full为wmask按比特展开的结果
+        //                         M[waddr] = (wdata & wmask_full) | M[waddr] & ~wmask_full;
+        //                         }
+        //                     */
+        //                         lsu_done     <= 1'b1;
+        //                         in_mem_wen   <= 1'b1;
+        //                         state        <= IDLE;
+        //                         //写指令不进入wait
+        //                     end
+        //                 end else begin
+        //                     lsu_done  <= 1'b1;
+        //                 end
+        //             end
+
+        //             WAIT: begin
+        //                 if (!in_mem_wen) begin
+        //                     mem_rdata <= in_rdata;
+        //                 end
+        //                 // 标记访存完成
+        //                 lsu_done  <= 1'b1;
+        //                 // 回到空闲状态
+        //                 state     <= IDLE;
+        //             end
+        //         endcase
+        //     end
+        // end
+
+endmodule
+// module lsu (
+//     input               clk,        // 时钟信号（用于写操作的时序控制）
+//     input               mem_valid,  // 内存访问有效标志
+//     input               mem_wen,    // 内存写使能（1为写，0为读）
+//     input       [31:0]  mem_raddr,  // 内存读地址
+//     input       [31:0]  mem_waddr,  // 内存写地址
+//     input       [31:0]  mem_wdata,  // 内存写数据
+//     input       [3:0]   mem_wmask,  // 内存写掩码（字节使能）
+//     output reg  [31:0]  mem_rdata   // 内存读数据输出
+// );
+//     import "DPI-C" function int pmem_read(input int raddr);
+//     import "DPI-C" function void pmem_write(
+//         input int mem_waddr, input int mem_wdata, input byte mem_wmask);
+
+//     always @(*) begin
+//         if (mem_valid) begin
+//             mem_rdata = pmem_read(mem_raddr);
+//         end else begin
+//             mem_rdata = 32'd0;
+//         end
+//     end
+
+//     always @(posedge clk) begin
+//         if (mem_valid && mem_wen) begin
+//             pmem_write(mem_waddr, mem_wdata, mem_wmask);
+//         end
+//     end
+// endmodule
